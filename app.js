@@ -20,9 +20,7 @@ d3.csv(data.csv”).then(function (data) {
         var filteredMovies = 
         movies.filter(movies => movies.actors.includes(inputValue));
         
-        // This was the easiest approach I found to sort the results by a different column in descending order. I had to include a new script in my head to use the _.sortBy 
-        This is the script:  
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+        // This was the easiest approach I found to sort the results by a different column in descending order. I had to include a new script in my head to use the _.sortBy         
         var output = _.sortBy(filteredMovies, ‘Score’).reverse()
         // Once I had all the values in my output variable, all I needed was to loop through them and add them to the table one by one. This was done using d3, where I inserted the value for each one of the columns I wanted using the necessary html to fit each table row.
         for (var i = 0; i < filteredMovies.length; i++) {
