@@ -1,30 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+<link rel="stylesheet" href="styles/styles.css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <script src="https://d3js.org/d3.v5.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+<script src="functions.js"></script>
 <script src="app.js"></script>
 </head>
 <body>
-    <div class="container">
-        <table class="table" cellpadding="10">
-            <thead>
-            <tr>
-            <th scope="col">Score</th>
-            <th scope="col">Album</th>
-            <th scope="col">Artist</th>
-            <th scope="col">Release Date</th>
-            <th scope="col">Notes (release)</th>
-            <th scope="col">Notes (revisit)</th>
-            <th scope="col">Year</th>
-            <th scope="col">Tiebreaker</th>
-            </tr>
-            </thead>
-            <tbody>
-            </tbody>
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">home</button>
+                <button class="tablinks" onclick="openTab(event, 'wrapup')">wrapup</button>
+                <button class="tablinks" onclick="openTab(event, 'stats')">stats</button>
+            </div>
         </div>
+        <!-- Tab content -->
+        <div id="home" class="tabcontent">
+            <div class="space"></div>
+            <div class="row">
+                <div class="col-1">
+
+                </div>
+                <div class="col-3">
+                    <div class="space"></div>
+                    <div class="space"></div>
+                    <p style="font-family:Quantico; font-size:48px; margin-bottom:0;">jaskarchive</p>
+                    <p style="font-family:'DM Mono'; font-size:11px;">all life's problems can be solved with a website</p>
+                </div>
+                <div class="col-5">
+                    <div class="tab">
+                        <button class="subtablinks" onclick="openSubTab(event, '2024')" id="defaultSubOpen">2024</button>
+                        <button class="subtablinks" onclick="openSubTab(event, '2023')">2023</button>
+                        <button class="subtablinks" onclick="openSubTab(event, 'ALL')">ALL</button>
+                    </div>
+                    <div class="small-space"></div>
+                    <div class="row">
+                        <div class="col">
+                            <div style="width:100%">
+                                <input type="text" class="fas" id="myInput" onkeyup="search()" placeholder="&#xF002;   Chao was here">
+                            </div>
+                        </div>
+
+                        <div class="col" id="sort-col">
+                            <button class="sort" id="sort" onclick="reverse('alist'); reverse('blist'); reverse('alllist'); changeSortButton();">&#9660; Score</button>
+                        </div>
+
+                    </div>
+                    <div class="small-space"></div>
+                    <!-- Subtab content -->
+                    <div id="2024" class="subtabcontent">
+                        <ul id="alist">
+                        </ul>
+                    </div>
+                
+                    <div id="2023" class="subtabcontent">
+                        <ul id="blist">
+                        </ul>
+                    </div>
+                
+                    <div id="ALL" class="subtabcontent">
+                        <ul id="alllist">
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-2">
+
+                </div>
+            </div>
+        </div>
+        
+        <div id="wrapup" class="tabcontent">
+            <h3>Placeholder</h3>
+            <p>This is under construction.</p>
+        </div>
+        
+        <div id="stats" class="tabcontent">
+            <h3>Placeholder</h3>
+            <p>This is under construction.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 </body>
 </html>
