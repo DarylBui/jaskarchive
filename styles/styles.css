@@ -116,7 +116,7 @@ ul li.album-info .cover {
 }
 
 ul li.album-info .cover img {
-  width: 80%;
+  width: 100px;
   height: 80%;
 }
 
@@ -124,12 +124,14 @@ ul li.album-info .album {
   grid-area: album;
   font-family:"Quantico"; 
   font-size:15px;
+  padding-left: 8px;
 }
 
 ul li.album-info .artist {
   grid-area: artist;
   font-family:"DM Mono"; 
   font-size:11px;
+  padding-left: 8px;
 }
 
 ul li.album-info .score {
