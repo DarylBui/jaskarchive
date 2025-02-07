@@ -106,7 +106,7 @@ class Bing:
             path = urllib.parse.urlsplit(link).path
             filename = posixpath.basename(path).split('?')[0]
             file_type = filename.split(".")[-1]
-            if file_type.lower() not in ["jpe", "jpeg", "jfif", "exif", "tiff", "gif", "bmp", "png", "webp", "jpg"]:
+            if file_type.lower() not in ["jpg"]:
                 file_type = "jpg"
                 
             if self.verbose:
@@ -128,11 +128,13 @@ class Bing:
             if self.verbose:
                 print('\n\n[!!]Indexing page: {}\n'.format(self.page_counter + 1))
             # Parse the page source and download pics
-            request_url = 'https://www.bing.com/images/async?q=' + urllib.parse.quote_plus(self.query) \
+            print(urllib.parse.quote_plus(self.query))
+            request_url = 'https://www.bing.com/images/?q=' + urllib.parse.quote_plus(self.query) \
                           + '&first=' + str(self.page_counter) + '&count=' + str(self.limit) \
-                          + '&adlt=' + self.adult + '&qft=' + ('' if self.filter is None else self.get_filter(self.filter))
+                          + '&adlt=' + self.adult
             request = urllib.request.Request(request_url, None, headers=self.headers)
             response = urllib.request.urlopen(request)
+            print(response)
             html = response.read().decode('utf8')
             if html ==  "":
                 print("[%] No more images are available")
